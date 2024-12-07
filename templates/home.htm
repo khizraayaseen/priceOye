@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Price Predictor</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <div class="input-container">    
+        <h1 class="floating">AI Price Predictor</h1>
+        <form id="pricePredictionForm" method="POST", action="{{url_for('home')}}" >
+            <label for="brand">Brand:</label>
+            <select id="brand" name="brand" require="true">
+                <option value="" disabled selected>Select Brand</option>
+
+                <option value="New Balance">New Balance</option>
+                <option value="Under Armour">Under Armour</option>
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Reebok">Reebok</option>
+                <option value="Puma">Puma</option>
+                
+            </select>
+    
+            <label for="category">Category:</label>
+            <select id="category" name="category" require="true">            
+                <option value="" disabled selected>Select Category</option>
+                <option value="Dress">Dress</option>
+                <option value="Jeans">Jeans</option>
+                <option value="Shoes">Shoes</option>
+                <option value="Sweater">Sweater</option>
+                <option value="Jacket">Jacket</option>
+                <option value="T-shirt">T-shirt</option>
+                <!-- Add more options as needed -->
+            </select>
+    
+            <label for="color">Color:</label>
+            <select id="color" name="color" require="true">
+                <option value="" disabled selected>Select Color</option>
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Blue">Blue</option>
+                <!-- Add more options as needed -->
+            </select>
+    
+            <label for="size">Size:</label>
+            <select id="size" name="size" require="true">
+                <option value="" disabled selected>Select Size</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <!-- Add more options as needed -->
+            </select>
+    
+            <label for="material">Material:</label>
+            <select id="material" name="material" require="true">
+                <option value="" disabled selected>Select Material</option>
+                <option value="Nylon">Nylon</option>
+                <option value="Silk">Silk</option>
+                <option value="Wool">Wool</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Polyester">Polyester</option>
+                <option value="Denim">Denim</option>
+                <!-- Add more options as needed -->
+            </select>
+    
+            <input type="submit" , value='PREDICT' >
+        </form>
+        <div id="result"></div>
+    </div>
+    
+    <script src="../static/script.js"></script>
+
+    {% if prediction_made %}
+        
+        <script>
+            // Run your JavaScript function after prediction
+            const predictedPrice = JSON.parse('{{ data|tojson|safe }}');
+            console.log(predictedPrice); // Check if data is received correctly
+            var roundedNumber = predictedPrice.toFixed(2);
+            document.getElementById('result').innerHTML = `Predicted Price: $${roundedNumber}`;
+        </script>
+    {% endif %}
+    
+</body>
+</html>

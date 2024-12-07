@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('background.jpg'); /* Replace 'background.jpg' with the path to your background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+}
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(10px, 10px);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    75% {
+        transform: translate(-10px, -10px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.floating {
+    position: relative;
+    animation: floatAnimation 6s ease-in-out infinite; /* Adjust the duration as needed */
+}
+
+h1 {
+    /* font-family: ; */
+    text-align: center;
+    color: rgb(17, 8, 8);
+}
+
+.input-container {
+    /* max-width: 400px;*/
+    margin: 0 auto; 
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a shadow */
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.input-container select, .input-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.input-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+    color: black
+}
