@@ -12,5 +12,4 @@ function predictPrice() {
     }
     document.getElementById('pricePredictionForm').submit();
     return true;
-    
 }

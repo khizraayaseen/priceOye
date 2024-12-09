@@ -3,74 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Price Predictor</title>
+    <title>Mobile Price Predictor</title>
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
 
+
+
+
     <div class="input-container">    
-        <h1 class="floating">AI Price Predictor</h1>
+        <h1 class="floating">Mobile Price Predictor</h1>
         <form id="pricePredictionForm" method="POST", action="{{url_for('home')}}" >
             <label for="brand">Brand:</label>
             <select id="brand" name="brand" require="true">
                 <option value="" disabled selected>Select Brand</option>
 
-                <option value="New Balance">New Balance</option>
-                <option value="Under Armour">Under Armour</option>
-                <option value="Nike">Nike</option>
-                <option value="Adidas">Adidas</option>
-                <option value="Reebok">Reebok</option>
-                <option value="Puma">Puma</option>
+                    <!-- ['infinix' 'samsung' 'tecno' 'nokia' 'xiaomi' 'oppo' 'realme' 'honor'
+ 'motorola' 'poco' 'vgotel' 'itel' 'zte' 'calme' 'sparx' 'vivo' 'villaon'
+ 'dcode' 'umidigi' 'gfive' 'q' 'digit' 'x' 'oneplus' 'huawei' 'g' 'apple'
+ 'vgo-tel' 'all-call' 'qmobile' 'jazz-digit' 'faywa' 'vnus' 'e-tachi'
+ 'xsmart' 'kxd' 'gionee' 'oukitel' 'xmobile' 'me-mobile' 'club-mobile' -->
+
+                <option value="infinix">Infinix</option>
+                <option value="samsung">Samsung</option>
+                <option value="tecno">Tecno</option>
+                <option value="nokia">Nokia</option>
+                <option value="xiaomi">Xiaomi</option>
+                <option value="oppo">Oppo</option>
+                <option value="realme">Realme</option>
+                <option value="honor">Honor</option>
+                <option value="motorola">Motorola</option>
+                <option value="tecno">Tecno</option>
+                <option value="poco">Poco</option>
+                <option value="vgotel">Vgotel</option>
+                <option value="itel">Itel</option>
+                <option value="zte">Zte</option>
+                <option value="calme">Calme</option>
+                <option value="sparx">Sparx</option>
+                <option value="vivo">Vivo</option>
+                <option value="villaon">Villaon</option>
+                <option value="dcode">Dcode</option>
+                <option value="umidigi">Umidigi</option>
+                <option value="gfive">Gfive</option>
+                <option value="q">Q</option>
+                <option value="digit">Digit</option>
+                <option value="Oneplus">oneplus</option>
+                <option value="x">X</option>
+                <option value="g">G</option>
+                <option value="huawei">Huawei</option>
+                <option value="apple">Apple</option>
+                <option value="xsmart">xsmart</option>
+                <option value="kxd">Kxd</option>
+                <option value="gionee">Gionee</option>
+                <option value="oukitel">Oukitel</option>
+                <option value="vnus">Vnus</option>
+                <option value="xmobile">Xmobile</option>
+                <option value="me-mobile">Me-mobile</option>
+                <option value="club-mobile">Club-mobile</option>
+                
                 
             </select>
     
-            <label for="category">Category:</label>
-            <select id="category" name="category" require="true">            
-                <option value="" disabled selected>Select Category</option>
-                <option value="Dress">Dress</option>
-                <option value="Jeans">Jeans</option>
-                <option value="Shoes">Shoes</option>
-                <option value="Sweater">Sweater</option>
-                <option value="Jacket">Jacket</option>
-                <option value="T-shirt">T-shirt</option>
+            <!-- <label for="category">RAM:</label>
+            <select id="RAM" name="RAM" require="true">            
+                <option value="" disabled selected>Select RAM</option>
+                <option value="4">4 GB</option>
                 <!-- Add more options as needed -->
-            </select>
-    
-            <label for="color">Color:</label>
-            <select id="color" name="color" require="true">
-                <option value="" disabled selected>Select Color</option>
-                <option value="White">White</option>
-                <option value="Black">Black</option>
-                <option value="Red">Red</option>
-                <option value="Green">Green</option>
-                <option value="Yellow">Yellow</option>
-                <option value="Blue">Blue</option>
-                <!-- Add more options as needed -->
-            </select>
-    
-            <label for="size">Size:</label>
-            <select id="size" name="size" require="true">
-                <option value="" disabled selected>Select Size</option>
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-                <!-- Add more options as needed -->
-            </select>
-    
-            <label for="material">Material:</label>
-            <select id="material" name="material" require="true">
-                <option value="" disabled selected>Select Material</option>
-                <option value="Nylon">Nylon</option>
-                <option value="Silk">Silk</option>
-                <option value="Wool">Wool</option>
-                <option value="Cotton">Cotton</option>
-                <option value="Polyester">Polyester</option>
-                <option value="Denim">Denim</option>
-                <!-- Add more options as needed -->
-            </select>
+            </select> -->
+
+            <label for="RAM">RAM (in GB):</label>
+            <input id="RAM" name="RAM" type="number" min="1" 
+            placeholder="Enter RAM in GB" required>
+
+
+            <label for="Internal Memory">Internal Memory (in GB):</label>
+            <input id="Internal Memory" name="Internal Memory" type="number" min="1" 
+            placeholder="Enter Internal Memory in GB" required>
+
+            <label for="Battery">Battery Size:</label>
+            <input id="Battery" name="Battery" type="number" min="1" 
+            placeholder="Enter Battery Size" required>
+
+            <label for="Display Size">Display Size:</label>
+            <input id="Display Size" name="Display Size" type="number" min="1" 
+            placeholder="Enter Display Size" required>
     
             <input type="submit" , value='PREDICT' >
         </form>
