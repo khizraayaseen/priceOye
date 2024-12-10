@@ -7,23 +7,12 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-
-
-
-
     <div class="input-container">    
         <h1 class="floating">Mobile Price Predictor</h1>
-        <form id="pricePredictionForm" method="POST", action="{{url_for('home')}}" >
-            <label for="brand">Brand:</label>
-            <select id="brand" name="brand" require="true">
+        <form id="pricePredictionForm" method="POST" action="{{url_for('home')}}" >
+            <label for="Brand">Brand:</label>
+            <select id="Brand" name="Brand" required>
                 <option value="" disabled selected>Select Brand</option>
-
-                    <!-- ['infinix' 'samsung' 'tecno' 'nokia' 'xiaomi' 'oppo' 'realme' 'honor'
- 'motorola' 'poco' 'vgotel' 'itel' 'zte' 'calme' 'sparx' 'vivo' 'villaon'
- 'dcode' 'umidigi' 'gfive' 'q' 'digit' 'x' 'oneplus' 'huawei' 'g' 'apple'
- 'vgo-tel' 'all-call' 'qmobile' 'jazz-digit' 'faywa' 'vnus' 'e-tachi'
- 'xsmart' 'kxd' 'gionee' 'oukitel' 'xmobile' 'me-mobile' 'club-mobile' -->
-
                 <option value="infinix">Infinix</option>
                 <option value="samsung">Samsung</option>
                 <option value="tecno">Tecno</option>
@@ -33,7 +22,6 @@
                 <option value="realme">Realme</option>
                 <option value="honor">Honor</option>
                 <option value="motorola">Motorola</option>
-                <option value="tecno">Tecno</option>
                 <option value="poco">Poco</option>
                 <option value="vgotel">Vgotel</option>
                 <option value="itel">Itel</option>
@@ -47,12 +35,12 @@
                 <option value="gfive">Gfive</option>
                 <option value="q">Q</option>
                 <option value="digit">Digit</option>
-                <option value="Oneplus">oneplus</option>
+                <option value="oneplus">Oneplus</option>
                 <option value="x">X</option>
                 <option value="g">G</option>
                 <option value="huawei">Huawei</option>
                 <option value="apple">Apple</option>
-                <option value="xsmart">xsmart</option>
+                <option value="xsmart">Xsmart</option>
                 <option value="kxd">Kxd</option>
                 <option value="gionee">Gionee</option>
                 <option value="oukitel">Oukitel</option>
@@ -60,35 +48,25 @@
                 <option value="xmobile">Xmobile</option>
                 <option value="me-mobile">Me-mobile</option>
                 <option value="club-mobile">Club-mobile</option>
-                
-                
             </select>
-    
-            <!-- <label for="category">RAM:</label>
-            <select id="RAM" name="RAM" require="true">            
-                <option value="" disabled selected>Select RAM</option>
-                <option value="4">4 GB</option>
-                <!-- Add more options as needed -->
-            </select> -->
 
             <label for="RAM">RAM (in GB):</label>
-            <input id="RAM" name="RAM" type="number" min="1" 
+            <input id="RAM" name="RAM" type="number" min="1" step="1" 
             placeholder="Enter RAM in GB" required>
 
-
-            <label for="Internal Memory">Internal Memory (in GB):</label>
-            <input id="Internal Memory" name="Internal Memory" type="number" min="1" 
+            <label for="InternalMemory">Internal Memory (in GB):</label> <!-- Changed to InternalMemory -->
+            <input id="InternalMemory" name="InternalMemory" type="number" min="1" step="1" 
             placeholder="Enter Internal Memory in GB" required>
 
-            <label for="Battery">Battery Size:</label>
-            <input id="Battery" name="Battery" type="number" min="1" 
+            <label for="Battery">Battery Size (in mAh):</label> <!-- Added units to improve clarity -->
+            <input id="Battery" name="Battery" type="number" min="1" step="1" 
             placeholder="Enter Battery Size" required>
 
-            <label for="Display Size">Display Size:</label>
-            <input id="Display Size" name="Display Size" type="number" min="1" 
+            <label for="DisplaySize">Display Size (in inches):</label> <!-- Added units to improve clarity -->
+            <input id="DisplaySize" name="DisplaySize" type="number" min="1" step="0.1" 
             placeholder="Enter Display Size" required>
-    
-            <input type="submit" , value='PREDICT' >
+
+            <input type="submit" value="PREDICT">
         </form>
         <div id="result"></div>
     </div>
@@ -96,15 +74,12 @@
     <script src="../static/script.js"></script>
 
     {% if prediction_made %}
-        
         <script>
-            // Run your JavaScript function after prediction
             const predictedPrice = JSON.parse('{{ data|tojson|safe }}');
-            console.log(predictedPrice); // Check if data is received correctly
-            var roundedNumber = predictedPrice.toFixed(2);
+            console.log(predictedPrice);
+            const roundedNumber = predictedPrice.toFixed(2);
             document.getElementById('result').innerHTML = `Predicted Price: $${roundedNumber}`;
         </script>
     {% endif %}
-    
 </body>
 </html>
